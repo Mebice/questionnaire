@@ -3,6 +3,7 @@ package com.example.questionnaire.service.ifs;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.example.questionnaire.entity.Questionnaire;
 import com.example.questionnaire.vo.QuestionRes;
 import com.example.questionnaire.vo.QuestionnaireRes;
 import com.example.questionnaire.vo.QuizReq;
@@ -14,15 +15,16 @@ public interface QuizService {
 	
 	public QuizRes update(QuizReq req);
 	
-	public QuizRes deleteQuestionnaire(List<Integer>qnIdList); //§R°£°İ¨÷
+	public QuizRes deleteQuestionnaire(List<Integer>qnIdList); //åˆªé™¤å•å·
 	
-	public QuizRes deleteQuestion(int qnid, List<Integer>quIdList);  //§R°£°İ¨÷ªºÃD¥Ø
+	public QuizRes deleteQuestion(int qnid, List<Integer>quIdList);  //åˆªé™¤å•å·çš„é¡Œç›®
 
-	public QuizRes search(String title,LocalDate startDate,LocalDate endDate);
+	public QuizRes search(String title,LocalDate startDate,LocalDate endDate);	
 	
 	public QuestionnaireRes searchQuestionnaireList(String title,LocalDate startDate,LocalDate endDate,boolean isPublished);
 	
 	public QuestionRes searchQuestionList(int qnId);
 	
+	public QuizRes searchFuzzy(String title,LocalDate startDate,LocalDate endDate);
 	
 }

@@ -1,12 +1,16 @@
 package com.example.questionnaire.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,10 +36,29 @@ public class Questionnaire {
 	
 	@Column(name = "end_date")
 	private LocalDate endDate;
+	
 
 	public Questionnaire() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Questionnaire(int id, String title, boolean published) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.published = published;
+	}
+
+	public Questionnaire(int id, String title, String description, boolean published, LocalDate startDate,
+			LocalDate endDate) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.published = published;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public Questionnaire(String title, String description, boolean published, LocalDate startDate, LocalDate endDate) {
@@ -46,6 +69,7 @@ public class Questionnaire {
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
+
 
 	public int getId() {
 		return id;
@@ -94,4 +118,6 @@ public class Questionnaire {
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
+
+
 }

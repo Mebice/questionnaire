@@ -8,6 +8,8 @@ import com.example.questionnaire.constants.RtnCode;
 public class QuizRes {
 
 	private List<QuizVo> quizVo;
+	
+	private List<QnQuVo> qnquVo;
 
 	private RtnCode rtnCode;
 
@@ -26,6 +28,13 @@ public class QuizRes {
 		this.rtnCode = rtnCode;
 	}
 
+	public QuizRes(List<QuizVo> quizVo, List<QnQuVo> qnquVo, RtnCode rtnCode) {
+		super();
+		this.quizVo = quizVo;
+		this.qnquVo = qnquVo;
+		this.rtnCode = rtnCode;
+	}
+
 	public List<QuizVo> getQuizVo() {
 		return quizVo;
 	}
@@ -40,6 +49,14 @@ public class QuizRes {
 
 	public void setRtnCode(RtnCode rtnCode) {
 		this.rtnCode = rtnCode;
+	}
+
+	public List<QnQuVo> getQnquVo() {
+		return qnquVo;
+	}
+
+	public void setQnquVo(List<QnQuVo> qnquVo) {
+		this.qnquVo = qnquVo;
 	}
 
 	

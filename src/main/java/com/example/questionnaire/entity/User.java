@@ -1,5 +1,7 @@
 package com.example.questionnaire.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,10 +11,13 @@ import javax.persistence.Table;
 @Table(name ="user")
 public class User {
 	
+	@Id
+	@Column(name = "num")
+	private int num;
+	
 	@Column(name = "name")
 	private String name;
 	
-	@Id
 	@Column(name = "phone_number")
 	private String phoneNumber;
 	
@@ -23,27 +28,53 @@ public class User {
 	private int age;
 	
 	@Column(name = "qn_id")
-	private String qnId;
+	private int questionnaireId;
 	
 	@Column(name = "q_id")
-	private String qId;
+	private int questionId;
 	
 	@Column(name = "ans")
 	private String ans;
+	
+	@Column(name = "date_time")
+	private LocalDateTime dateTime;
 
 	public User() {
 		super();
 	}
 
-	public User(String name, String phoneNumber, String email, int age, String qnId, String qId, String ans) {
+	public User(String name, String phoneNumber, String email, int age, int questionnaireId, int questionId,
+			String ans) {
 		super();
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.age = age;
-		this.qnId = qnId;
-		this.qId = qId;
+		this.questionnaireId = questionnaireId;
+		this.questionId = questionId;
 		this.ans = ans;
+	}
+
+	public User(int num, String name, String phoneNumber, String email, int age, int questionnaireId, int questionId,
+			String ans, LocalDateTime dateTime) {
+		super();
+		this.num = num; 
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.age = age;
+		this.questionnaireId = questionnaireId;
+		this.questionId = questionId;
+		this.ans = ans;
+		this.dateTime = dateTime;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getName() {
@@ -78,20 +109,20 @@ public class User {
 		this.age = age;
 	}
 
-	public String getQnId() {
-		return qnId;
+	public int getQuestionnaireId() {
+		return questionnaireId;
 	}
 
-	public void setQnId(String qnId) {
-		this.qnId = qnId;
+	public void setQuestionnaireId(int questionnaireId) {
+		this.questionnaireId = questionnaireId;
 	}
 
-	public String getqId() {
-		return qId;
+	public int getQuestionId() {
+		return questionId;
 	}
 
-	public void setqId(String qId) {
-		this.qId = qId;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 
 	public String getAns() {
@@ -102,4 +133,13 @@ public class User {
 		this.ans = ans;
 	}
 
+	public LocalDateTime getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(LocalDateTime dateTime) {
+		this.dateTime = dateTime;
+	}
+
+	
 }

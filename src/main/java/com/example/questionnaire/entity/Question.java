@@ -4,30 +4,32 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="question")
+@Table(name = "question")
 @IdClass(value = QuestionId.class)
 public class Question {
-	
+
 	@Id
 	@Column(name = "id")
 	private int quId;
-	
+
 	@Id
 	@Column(name = "qn_id")
 	private int qnId;
-	
+
 	@Column(name = "q_title")
 	private String qTitle;
-	
+
 	@Column(name = "option_type")
 	private String optionType;
-	
+
 	@Column(name = "is_necessary")
 	private boolean necessary;
-	
+
 	@Column(name = "q_option")
 	private String option;
 
@@ -93,6 +95,5 @@ public class Question {
 	public void setOption(String option) {
 		this.option = option;
 	}
-
 
 }
