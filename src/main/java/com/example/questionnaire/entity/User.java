@@ -15,6 +15,9 @@ public class User {
 	@Column(name = "num")
 	private int num;
 	
+	@Column(name = "user_id")
+	private String userId;
+	
 	@Column(name = "name")
 	private String name;
 	
@@ -43,9 +46,10 @@ public class User {
 		super();
 	}
 
-	public User(String name, String phoneNumber, String email, int age, int questionnaireId, int questionId,
+	public User(String userId, String name, String phoneNumber, String email, int age, int questionnaireId, int questionId,
 			String ans) {
 		super();
+		this.userId = userId;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -55,10 +59,11 @@ public class User {
 		this.ans = ans;
 	}
 
-	public User(int num, String name, String phoneNumber, String email, int age, int questionnaireId, int questionId,
+	public User(int num, String userId, String name, String phoneNumber, String email, int age, int questionnaireId, int questionId,
 			String ans, LocalDateTime dateTime) {
 		super();
-		this.num = num; 
+		this.num = num;
+		this.userId = userId;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -77,6 +82,14 @@ public class User {
 		this.num = num;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
 	public String getName() {
 		return name;
 	}
