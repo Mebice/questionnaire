@@ -84,9 +84,12 @@ public class QuizController {
 		return service.deleteQuestion(req.getQnid(), req.getQuIdList());
 	}
 
-	@GetMapping(value = "api/quiz/searchQuestionnaireList")
-	public QuestionnaireRes searchQuestionnaireList(@RequestBody QuizSearchQuestionnaireListReq req) {
-		return service.searchQuestionnaireList(req.getTitle(), req.getStartDate(), req.getEndDate(), req.isAll());
+	@GetMapping(value = "api/quiz/searchQuestionnaireList") // only search Questionnaire no Question
+	public QuestionnaireRes searchQuestionnaireList(
+		@RequestParam(name = "title", required = false) String title,
+		@RequestParam(name = "start_date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+		@RequestParam(name = "end_date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+		return service.searchQuestionnaireList(title, startDate, endDate, false);
 	}
 
 	@GetMapping(value = "api/quiz/searchQuestionList")
