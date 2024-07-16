@@ -92,9 +92,9 @@ public class QuizController {
 		return service.searchQuestionnaireList(title, startDate, endDate, false);
 	}
 
-	@GetMapping(value = "api/quiz/searchQuestionList")
-	public QuestionRes searchQuestionList(@RequestBody QuizSearchQuestionListReq req) {
-		return service.searchQuestionList(req.getQnid());
+	@GetMapping(value = "api/quiz/searchQuestionList")  // questionList by qnId
+	public QuestionRes searchQuestionList(@RequestParam int qnId) {
+		return service.searchQuestionList(qnId);
 	}
 
 }
